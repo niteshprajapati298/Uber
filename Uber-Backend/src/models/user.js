@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
 
 
 userSchema.methods.generateAuthToken = function(){
-    const token = jwt.sign({_id:this.id},"Uber@123")
+    const token = jwt.sign({_id:this.id},"Uber@123",{expiresIn:'24h'})
     return token;
 }
 userSchema.methods.comparePassword = async function (password) {
