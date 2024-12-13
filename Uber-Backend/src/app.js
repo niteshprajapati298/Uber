@@ -5,9 +5,10 @@ const cors = require("cors");
 const app = express();
 const connectDB = require("./config/database");
 const userRoutes = require('./routes/user.routes')
-const captainRoutes = require('./routes/captain.routes')
+const captainRoutes = require('./routes/captain.routes');
+const cookieParser = require('cookie-parser')
 connectDB()
-
+app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
